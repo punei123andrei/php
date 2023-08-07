@@ -1,10 +1,8 @@
 <?php 
+require_once '../app/Bootstrap.php';
 
-require_once __DIR__ . '/vendor/autoload.php';
+// init Core Library
 
-use App\User;
-use App\Customer;
-
-if(Customer::validatePass('wro')){
-  echo 'The password is perfect';
-}
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);

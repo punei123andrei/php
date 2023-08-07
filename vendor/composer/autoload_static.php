@@ -21,6 +21,10 @@ class ComposerStaticInit325889b84e93dc4617b8471106cdd255
     );
 
     public static $classMap = array (
+        'App\\Controllers\\Pages' => __DIR__ . '/../..' . '/app/Controllers/Pages.php',
+        'App\\Controllers\\Posts' => __DIR__ . '/../..' . '/app/Controllers/Posts.php',
+        'App\\Libraries\\Controller' => __DIR__ . '/../..' . '/app/Libraries/Controller.php',
+        'App\\Libraries\\Core' => __DIR__ . '/../..' . '/app/Libraries/Core.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
