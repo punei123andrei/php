@@ -9,11 +9,11 @@ namespace App\Libraries;
 
 class Controller {
   //Load model
-  public function model($model): object {
+  public function model($model) {
     //Require model file
-    require_once '../app/models/' . $model . '.php';
+    $modelClass =  '\\App\\Models\\' . $model;
     // Instantiate model
-    return new $model();
+    return new $modelClass();
   }
 
   // Load view
