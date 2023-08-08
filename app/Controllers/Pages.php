@@ -10,13 +10,13 @@ use App\Libraries\Controller;
 
 class Pages extends Controller {
     public function __construct() {
-
+      
     }
 
     public function index(){
       $data = [
-        'title' => 'Welcome',
-        'posts' => $posts
+        'title'       => 'SharePosts',
+        'description' => 'Simple social network built with MVC'
       ];
       $this->view('pages/index', $data);
 
@@ -24,7 +24,8 @@ class Pages extends Controller {
 
     public function about() {
       $data = [
-        'title' => 'About us'
+        'title' => 'About us',
+        'description' => 'App to share posts with other users'
       ];
       $this->view('pages/about', $data);
     }
