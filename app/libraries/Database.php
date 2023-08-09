@@ -21,29 +21,29 @@ class Database {
   private $stmt;
   private $error;
 
-  function __construct() {
+  public function __construct(){
     // Set DSN
-    $dsn = "mysql:host={$this->host};dbname={$this->dbname}";
-    $options = [
+    $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
+    $options = array(
       PDO::ATTR_PERSISTENT => true,
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    ];
+    );
 
     // Create PDO instance
     try{
       $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
-    } catch(PDOEXCEPTION $e) {
+    } catch(PDOException $e){
       $this->error = $e->getMessage();
       echo $this->error;
     }
   }
 
   // Prepare statement with query
-
   public function query($sql){
     $this->stmt = $this->dbh->prepare($sql);
   }
 
+  // Bind values
   public function bind($param, $value, $type = null){
     if(is_null($type)){
       switch(true){
@@ -80,8 +80,9 @@ class Database {
     $this->execute();
     return $this->stmt->fetch(PDO::FETCH_OBJ);
   }
+
   // Get row count
-  public function rowCOunt(){
+  public function rowCount(){
     return $this->stmt->rowCount();
   }
 }

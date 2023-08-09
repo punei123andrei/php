@@ -44,7 +44,16 @@ class Users extends Controller {
 
 
       if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
+        // Hash the password
+
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
         
+        if($this->userModel->insert_user($data)){
+          flash('register_success', 'You are registered and can log in!');
+          redirect('users/login');
+        } else {
+          die('Something went wrong');
+        }
       } else {
         //Load view 
         $this->view('users/register', $data);
