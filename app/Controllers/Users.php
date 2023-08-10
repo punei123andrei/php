@@ -94,8 +94,19 @@ class Users extends Controller {
       $data['password_err'] = empty($data['password']) ? 'Please enter password' : '';
       $data['password_err'] = strlen($data['password']) < 6 ? 'The password is too short' : '';
 
-      if(empty($data['email_err']) && empty($data['password_err'])){
+      if($this->userModel->find_email($data['email'])){
         
+      } else {
+        $data['email_err'] = 'No user found';
+      }
+
+      if(empty($data['email_err']) && empty($data['password_err'])){
+        // Validated
+        // Check and set logged user
+        $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+        if($loggedInUser){
+          // Create Session
+        }
       } else {
         //Load view 
         $this->view('users/login', $data);
