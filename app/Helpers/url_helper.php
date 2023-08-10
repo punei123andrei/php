@@ -1,6 +1,6 @@
 <?php 
 //Simple redirect function
-function redirect($page){
+function redirect($page = ''){
   header("Location: " . URLROOT . "/" . $page);
   exit;
 }

@@ -13,14 +13,6 @@ class User {
     $this->db = new Database;
   }
 
-  public function find_email(string $email): bool{
-    $this->db->query("SELECT * FROM users WHERE email = :email");
-    $this->db->bind(':email', $email);
-    $row = $this->db->single();
-    $email_exists = $this->db->rowCount() > 0 ? true : false;
-    return $email_exists;
-  }
-
   public function insert_user(array $data): bool{
     $this->db->query("INSERT INTO users(name, email, password) VALUES (:name, :email, :password)");
     // Bind values
@@ -33,4 +25,27 @@ class User {
       return false;
     }
   } 
+
+  public function login(string $email,string $password){
+    $this->db->query("SELECT * FROM users WHERE email = :email");
+    $this->db->bind(':email', $email);
+    $row = $this->db->single();
+    $hash_password = $row->password;
+
+    if(password_verify($password, $hash_password)){
+      return $row;
+    } else {
+      return false;
+    }
+
+  }
+
+  public function find_email(string $email): bool{
+    $this->db->query("SELECT * FROM users WHERE email = :email");
+    $this->db->bind(':email', $email);
+    $row = $this->db->single();
+    $email_exists = $this->db->rowCount() > 0 ? true : false;
+    return $email_exists;
+  }
+ 
 }
