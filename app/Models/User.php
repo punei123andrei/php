@@ -47,5 +47,12 @@ class User {
     $email_exists = $this->db->rowCount() > 0 ? true : false;
     return $email_exists;
   }
+
+  public function getUserById($id){
+    $this->db->query("SELECT * FROM users WHERE id = :id");
+    $this->db->bind(':id', $id);
+    $row = $this->db->single();
+    return $row;
+  }
  
 }

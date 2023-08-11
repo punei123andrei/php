@@ -1,4 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
+<?php flash('post_message'); ?>
 <div class="row mb-3">
   <div class="col-6">
     <h1>Posts</h1>
@@ -17,10 +18,10 @@ if(!empty($data['posts'])){
       <div class="card-title">
         <h4><?php echo $post->title; ?></h4>
         <div class="bg-light p-2 mb-3">
-          <p>Written by <?php echo $post->name; ?> on <?php echo $post->postCreated; ?></p>
+          <p>Written by <?php echo $post->name; ?> on <?php echo $post->postsCreated; ?></p>
         </div>
         <p class="card-text"><?php echo $post->body; ?></p>
-        <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->posstId; ?>" class="btn btn-dark">More...</a>
+        <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>" class="btn btn-dark">More...</a>
       </div>
     </div>
     <?php 
