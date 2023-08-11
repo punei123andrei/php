@@ -25,3 +25,9 @@
       }
     }
   }
+
+
+   function isLoggedIn(): bool{
+    $isLoggedIn = isset($_SESSION['user_id']) ? true : false;
+    return $isLoggedIn;
+  }

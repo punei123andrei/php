@@ -12,6 +12,7 @@ return array(
     'App\\Libraries\\Controller' => $baseDir . '/app/Libraries/Controller.php',
     'App\\Libraries\\Core' => $baseDir . '/app/Libraries/Core.php',
     'App\\Libraries\\Database' => $baseDir . '/app/Libraries/Database.php',
+    'App\\Models\\Post' => $baseDir . '/app/Models/Post.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

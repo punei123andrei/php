@@ -27,6 +27,7 @@ class ComposerStaticInit325889b84e93dc4617b8471106cdd255
         'App\\Libraries\\Controller' => __DIR__ . '/../..' . '/app/Libraries/Controller.php',
         'App\\Libraries\\Core' => __DIR__ . '/../..' . '/app/Libraries/Core.php',
         'App\\Libraries\\Database' => __DIR__ . '/../..' . '/app/Libraries/Database.php',
+        'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
